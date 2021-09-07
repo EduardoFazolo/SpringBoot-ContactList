@@ -12,7 +12,7 @@ export class ContactService {
 		});
 	}
 
-	static async postContacts(dto: ContactDto): Promise<void> {
+	static async postContact(dto: ContactDto): Promise<void> {
 		NetworkService.request<void>({
 			url:"contacts",
 			method:"POST",
@@ -20,11 +20,19 @@ export class ContactService {
 		});
 	}
 
-	static async deleteContacts(id: number): Promise<void> {
+	static async deleteContact(id: number): Promise<void> {
 		NetworkService.request<void>({
 			url:"contacts",
 			method:"DELETE",
 			params: {id}
+		});
+	}
+
+	static async editContact(dto: ContactDto): Promise<void> {
+		NetworkService.request<void>({
+			url:"contacts",
+			method:"PUT",
+			data: {dto}
 		});
 	}
 }

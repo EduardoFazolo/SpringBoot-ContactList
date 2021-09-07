@@ -67,6 +67,8 @@ public class ContactsControllerTest {
 		assertEquals(2, contacts.size());
 		ContactDto contact = contacts.get(0);
 		contact.setName("EditedName");
+		final String newPhone1 = "111111";
+		contact.setPhones(new ArrayList<>(Arrays.asList(newPhone1, "")));
 		final ResponseEntity<String> response = contactsController.editContact(contact);
 		assertEquals(200, response.getStatusCodeValue());
 
@@ -75,6 +77,8 @@ public class ContactsControllerTest {
 		contacts = contactsController.listContacts(filter).getBody();
 		assertNotNull(contacts);
 		assertEquals(1, contacts.size());
+		assertEquals(newPhone1, contacts.get(0).getPhones().get(0));
+		assertEquals("", contacts.get(0).getPhones().get(1));
 	}
 
 	private ContactDto createContact(String name, String lastName, String degree) {

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, useCallback, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import ReactModal from 'react-modal';
 import type { ContactDto } from 'src/models/ContactDto';
 import ContactItem from '../contactItem/ContactItem';
@@ -37,7 +37,7 @@ function ContactList({items}: ContactList) {
 			kinshipDegree: kinship,
 			phones: phones
 		} as ContactDto;
-		await ContactService.postContacts(newContact);
+		await ContactService.postContact(newContact);
 	}, [contactName, contactLName, birthday, kinship, phones]);
 
 	const cancelAdd = () => {

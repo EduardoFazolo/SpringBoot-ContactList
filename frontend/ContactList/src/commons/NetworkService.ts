@@ -6,7 +6,7 @@ import Axios, { AxiosResponse } from "axios";
 //eslint-disable-next-line
 interface RequestParams<T> {
 	url: string;
-	method: "POST" | "GET" | "DELETE";
+	method: "POST" | "GET" | "DELETE" | "PUT";
 	data?: unknown;
 	params?: unknown;
 	headers?: any;
