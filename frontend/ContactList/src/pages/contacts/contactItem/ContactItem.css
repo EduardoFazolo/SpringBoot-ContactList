@@ -1,0 +1,44 @@
+.ContactItem {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+	align-items: flex-start;
+	margin-bottom: 15px;
+	background-color: #282c357e;
+	border-radius: 8px;
+	padding: 10px;
+	width: 250px;
+	position: relative;
+}
+
+.ContactItem .delete {
+	font-size: 18px;
+	position: absolute;
+	align-self: flex-end;
+	top: 5px;
+	right: 5px;
+	color: rgb(182, 44, 44);
+	height: 22px;
+	width: 20px;
+	display: block;
+	border-top-right-radius: 3px;
+}
+
+.ContactItem .delete:hover {
+	cursor: pointer;
+	background-color: #4f525a7e;
+}
+
+.ContactItem .delete:active {
+	background-color: #1a1e297e;
+	color: rgb(124, 39, 39);
+}
+
+.ContactItem .name {
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.ContactItem .phone {
+	font-size: 19px;
+}
