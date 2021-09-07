@@ -11,6 +11,7 @@ public class ModelConverters {
 
 		public static Contact toContact(ContactDto dto) {
 			final Contact contact = new Contact();
+			contact.setId(dto.getId());
 			contact.setName(dto.getName());
 			contact.setLastName(dto.getLastName());
 			contact.setKinshipDegree(dto.getKinshipDegree());

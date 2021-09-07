@@ -9,7 +9,7 @@ interface ContactList {
 	items: ContactDto[]
 }
 
-const ps = Array<string>();
+const contactListPhones = Array<string>();
 
 function ContactList({items}: ContactList) {
 	const [showModal, setShowModal] = useState(false);
@@ -18,7 +18,8 @@ function ContactList({items}: ContactList) {
 	const [contactLName, setContactLName] = useState("");
 	const [birthday, setBirthday] = useState<any>();
 	const [kinship, setKinship] = useState("");
-	const [phones, setPhones] = useState(ps);
+	
+	const [phones, setPhones] = useState([""]);
 
 	const resetState = () => {
 		setShowModal(false);
@@ -83,8 +84,8 @@ function ContactList({items}: ContactList) {
 	}
 
 	const onChangePhones = (phone: ChangeEvent<HTMLInputElement>, index: number) => {
-		ps[index] = phone.target.value;
-		setPhones(ps);
+		contactListPhones[index] = phone.target.value;
+		setPhones([...contactListPhones]);
 	}
 
 	return (
@@ -93,6 +94,7 @@ function ContactList({items}: ContactList) {
 				{items.map(item=> <ContactItem item={item}/>)}
 			</ul>
 			<button className="add-btn" onClick={openAdd}>Novo Contato</button>
+			{/* TODO: Refactor this to use the Modal Component we created */}
 			<ReactModal
 				ariaHideApp={false}
 				className="contact-modal"

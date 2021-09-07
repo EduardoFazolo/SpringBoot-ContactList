@@ -28,11 +28,11 @@ export class ContactService {
 		});
 	}
 
-	static async editContact(dto: ContactDto): Promise<void> {
+	static async editContact(contactDto: ContactDto): Promise<void> {
 		NetworkService.request<void>({
 			url:"contacts",
 			method:"PUT",
-			data: {dto}
+			data: contactDto
 		});
 	}
 }

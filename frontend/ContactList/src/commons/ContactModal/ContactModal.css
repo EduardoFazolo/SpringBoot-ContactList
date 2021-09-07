@@ -1,0 +1,66 @@
+
+.ContactModal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: inherit;
+	width: inherit;
+}
+
+.contact-form {
+	max-width: 334px;
+}
+
+.ContactModal .modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #0f131a;
+	margin-top: 5vh;
+	height: 80vh;
+	width: 90vw;
+}
+
+.ContactModal .modal-content > form > div {
+	margin: 5px;
+}
+
+.modal-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 90vw;
+}
+.modal-buttons > button {
+	width: fit-content;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.name-lastname {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 70%;
+}
+
+.contact-component {
+	display: flex;
+	flex-direction: column;
+}
+
+.phone-item {
+	margin-bottom: 5px;
+}
+
+.spaced-form-div {
+	display: flex;
+	justify-content: space-between;
+}
+
+label {
+	color: white;
+	margin-right: 8px;
+}

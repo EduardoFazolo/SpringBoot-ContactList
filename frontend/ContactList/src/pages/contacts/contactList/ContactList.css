@@ -20,10 +20,6 @@
 	justify-content: flex-end;
 }
 
-.contact-component {
-	max-width: 334px;
-}
-
 .contact-modal {
 	display: flex;
 	flex-direction: column;
@@ -32,6 +28,11 @@
 	height: inherit;
 	width: inherit;
 }
+
+.contact-component {
+	max-width: 334px;
+}
+
 .contact-modal .modal-content {
 	display: flex;
 	flex-direction: column;
@@ -41,11 +42,6 @@
 	margin-top: 5vh;
 	height: 80vh;
 	width: 90vw;
-}
-
-.spaced-form-div {
-	display: flex;
-	justify-content: space-between;
 }
 
 .contact-modal .modal-content > form > div {
@@ -78,6 +74,11 @@
 
 .phone-item {
 	margin-bottom: 5px;
+}
+
+.spaced-form-div {
+	display: flex;
+	justify-content: space-between;
 }
 
 label {

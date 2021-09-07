@@ -20,7 +20,7 @@
 	right: 5px;
 }
 
-.ContactItem .delete {
+.ContactItem .edit-delete-menu .delete {
 	font-size: 18px;
 	color: rgb(182, 44, 44);
 	height: 22px;
@@ -30,7 +30,16 @@
 	margin-left: 5px;
 }
 
-.ContactItem .delete:hover {
+.ContactItem .edit-delete-menu .edit {
+	font-size: 18px;
+	height: 22px;
+	width: 20px;
+	display: block;
+	border-top-right-radius: 3px;
+	margin-left: 5px;
+}
+
+.ContactItem .delete:hover,.edit:hover {
 	cursor: pointer;
 	background-color: #4f525a7e;
 }
@@ -38,6 +47,11 @@
 .ContactItem .delete:active {
 	background-color: #1a1e297e;
 	color: rgb(124, 39, 39);
+}
+
+.ContactItem .edit:active {
+	background-color: #2223257e;
+	color: rgb(129, 126, 126);
 }
 
 .ContactItem .name {

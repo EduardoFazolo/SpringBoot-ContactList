@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import ContactModal from '../../../commons/ContactModal/ContactModal';
 import type { ContactDto } from 'src/models/ContactDto';
 import { ContactService } from '../ContactService';
 import './ContactItem.css';
@@ -14,14 +15,18 @@ function ContactItem({item}: ContactItem) {
 		await ContactService.deleteContact(item.id!);
 	}, []);
 
-	const editContact = useCallback( async () => {
-		await ContactService.editContact(item);
-	}, []);
+	const openModal = () => {
+		setShowModal(true);
+	};
+
+	const closeModal = () => {
+		setShowModal(false);
+	};
 
 	return (
 		<li className="ContactItem" key={item.name}>
 			<div className="edit-delete-menu">
-				<div className="edit noselect" onClick={()=>setShowModal(true)}>&#9998;</div>
+				<div className="edit noselect" onClick={openModal}>&#9998;</div>
 				<div className="delete noselect" onClick={removeContact}>&#x2715;</div>
 			</div>
 			<div className="name">
@@ -36,6 +41,12 @@ function ContactItem({item}: ContactItem) {
 			<div className="kinship">
 				Grau de parentesco: {item.kinshipDegree != null ? item.kinshipDegree : "--"}
 			</div>
+			{/* TODO: Remove this modal from here once a state manager is implemented. */}
+			<ContactModal
+				item={item}
+				showModal={showModal}
+				onClose={closeModal}
+			/>
 		</li>
 	);
 }

@@ -1,6 +1,7 @@
 package com.efverona.ContactList.services;
 
 import com.efverona.ContactList.data.DatabaseContext;
+import com.efverona.ContactList.data.PhoneRepository;
 import com.efverona.ContactList.models.Phone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +29,10 @@ public class PhoneService {
 		databaseContext.getPhoneRepository().removeByContactId(id);
 	}
 
-	public void edit(List<Phone> phones) {
-		databaseContext.getPhoneRepository().saveAll(phones);
+	public void edit(List<Phone> phones, Long contactId) {
+		final PhoneRepository repository = databaseContext.getPhoneRepository();
+		final List<Phone> byContactId = repository.findByContactId(contactId);
+		repository.deleteAll(byContactId);
+		repository.saveAll(phones);
 	}
 }

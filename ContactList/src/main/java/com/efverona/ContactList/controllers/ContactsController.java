@@ -72,12 +72,12 @@ public class ContactsController extends ControllerBase {
 
 	@PutMapping
 	@Transactional
-	public ResponseEntity<String> editContact(ContactDto contactDto) {
+	public ResponseEntity<String> editContact(@RequestBody ContactDto contactDto) {
 		try {
 			final Contact contact = ModelConverters.ContactConverter.toContact(contactDto);
-			final Contact edit = contactService.edit(contact);
-			final List<Phone> phones = ModelConverters.ContactConverter.toPhone(contactDto, edit.getId());
-			phoneService.edit(phones);
+			final Contact editedContact = contactService.edit(contact);
+			final List<Phone> phones = ModelConverters.ContactConverter.toPhone(contactDto, editedContact.getId());
+			phoneService.edit(phones, editedContact.getId());
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
 			return ResponseEntity.unprocessableEntity().build();
